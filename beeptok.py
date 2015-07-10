@@ -6,7 +6,7 @@
 
 @author: John Troon
 
-@purpose: IRC bot
+@purpose: IRC bot to send Twitter DM (as notifications) when a nick user is away from Keyboard.
 
 Copyright (C) 2015  John Troon
 
@@ -87,7 +87,7 @@ class IRCClient:
         self.send("USER %(nick)s %(nick)s %(nick)s :%(nick)s" % {'nick':self.nickname})
         self.send("PRIVMSG nickserv :identify %s %s\r\n" % (self.nickname, self.password))
         
-        
+     # Add a list of nicks to send notifications and the nick of the owner  
 	nickToCheck = ['add','nicks']
 	owner = 'owner_nick'
     
@@ -120,7 +120,8 @@ class IRCClient:
                 ctx['type']   = args[1]
                 ctx['target'] = args[2]
                 ctx['msg']    = args[3][1:]
-
+                
+                # Get nick of the person who sent a message
                 sender = ctx['sender']
                 sender_trim = re.compile(r"(!)")
                 sendnick = sender_trim.split(sender)
@@ -221,7 +222,7 @@ class IRCClient:
                     except:
                         print "Error: Facts about Cats failed! Meow!"
                 
-                # Add A new User for alerts
+                # Add A new User for alerts/notificationd
                 if ctx['msg'].startswith('!addbeep') and sendnick == owner:
                     try:
                         newOne = ctx['msg'].strip('!addbeep')
@@ -246,6 +247,7 @@ class IRCClient:
                     except:
                         self.say(offnick+" not removed. Maybe an error/not present..", target)
                         
+                # Print the current nicks set for notifications       
                 if ctx['msg'] == '!stats':
                     self.say("Here are the current Nicks..", target)
                     try:
@@ -254,7 +256,7 @@ class IRCClient:
                     except:
                         self.say("Oops! Something went wrong...", target)
                     
-                        
+                # for debugging         
 #                if ctx['msg'] == '!dbug':
 #                    sender = ctx['sender']
 #                    typex = ctx['type']
