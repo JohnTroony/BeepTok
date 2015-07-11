@@ -18,7 +18,7 @@ It has other commands you can use once you deploy, such as :
 * `!stats` - Prints current IRC users subscribed for Twitter notification (when mentioned on IRC).
 
 ## Notifications
-IRC mention notifications are sent as DMs to the IRC user having a Twitter account.
+IRC mention notifications are sent as DMs to the IRC user having a Twitter account. If the user has set SMS notifications of Twitter the better.
 
 - If Message is too long (> 140 characters), a predefined message is sent instead
 ![Bot notification 1](img/bot1.png) First part before : shows the IRC user who mentioned you, then the predefined message followed by the IRC channel.
