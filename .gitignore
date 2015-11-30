@@ -1,3 +1,5 @@
 # Ignore all the content in the tmp dit
 
+beeptok/*.pyc
 tmp/*
+
