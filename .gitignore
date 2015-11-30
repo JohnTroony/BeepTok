@@ -1,0 +1,5 @@
+# Ignore all the content in the tmp dit
+
+tmp/*
+
+
