@@ -1,5 +1,8 @@
-# Ignore all the content in the tmp dit
+# Ignore changes in settings.py and twitter_api.py (to avoid uploading your API keys)
+# Don't track any .pyc file in beeptok and tmp dir
 
 beeptok/*.pyc
+beeptok/settings.py
+beeptoktwitter_api.py
 tmp/*
 
