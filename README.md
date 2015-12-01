@@ -35,7 +35,7 @@ channels = ['#demo']
 password = 'passwd'
 ```
 
-* Also get your Twitter API keys; if you don't have them, get from apps.twitter.com (create a new app). Open **beeptok/twitter_api.py** and fill in the values appropriately. For example:
+* Also get your Twitter API keys; if you don't have them, get from [apps.twitter.com](https://apps.twitter.com/) (create a new app). Open **beeptok/twitter_api.py** and fill in the values appropriately. For example:
 ```python
 consumer_key = "xxxxxxxxxxxxxxxxxxxxx"
 consumer_secret = "xxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxxxxxxx"
