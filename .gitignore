@@ -3,6 +3,6 @@
 
 beeptok/*.pyc
 beeptok/settings.py
-beeptoktwitter_api.py
+beeptok/twitter_api.py
 tmp/*
 
