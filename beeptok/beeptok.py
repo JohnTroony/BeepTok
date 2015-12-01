@@ -80,13 +80,13 @@ class IRCClient:
         self.send("PRIVMSG nickserv :identify %s %s\r\n" % (self.nickname, self.password))
         
     #Add a list of nicks to send notifications     
-	nickToCheck = ['ugali2015','john']
+	nickToCheck = ['troon','john']
 
 	# Owner of the Bot
-	owner = 'theBOFH'
+	owner = 'troon'
     
 	# Add Twitter handles for nics to notify; e.g. tweetID = {'Xman':'johntroony','Twita':'twitter'}
-	tweetID = {'ugali2015':'mario_esthe','Nick2':'her_twitter'}
+	tweetID = {'troon':'johntroony','john':'twitter_handle'}
 
 	while True:
             buf = self.socket.recv(4096)
