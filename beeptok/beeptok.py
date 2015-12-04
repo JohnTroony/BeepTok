@@ -28,6 +28,7 @@ import cPickle as pickle
 
 from twitter_api import *
 from settings import *
+from twiloSMS import *
 
 # Function to open a pickle file and select a random value from the saved list
 def picks(filex, namex):
@@ -70,6 +71,7 @@ class IRCClient:
     nickname = nickname
     channels = channels
     password = password
+    SMSowner = "+150xxxxxx"
 
 
     def __init__(self):
@@ -80,13 +82,19 @@ class IRCClient:
         self.send("PRIVMSG nickserv :identify %s %s\r\n" % (self.nickname, self.password))
         
     #Add a list of nicks to send notifications     
-	nickToCheck = ['ugali2015','john']
+	nickToCheck = ['Jay','John']
+
+    #Add a list of nicks to send notifications
+	SMSAlerts = ['troon']
 
 	# Owner of the Bot
-	owner = 'theBOFH'
+	owner = 'Jaytroon'
     
 	# Add Twitter handles for nics to notify; e.g. tweetID = {'Xman':'johntroony','Twita':'twitter'}
-	tweetID = {'ugali2015':'mario_esthe','Nick2':'her_twitter'}
+	tweetID = {'troon':'johntroony','nick2':'twitter_handle'}
+
+	# Add Twitter handles for nics to notify; e.g. tweetID = {'Xman':'johntroony','Twita':'twitter'}
+	SMSid = {'troon':'+254722xxxxxxx','Nick2':'+254720xxxxxx'}
 
 	while True:
             buf = self.socket.recv(4096)
@@ -202,6 +210,29 @@ class IRCClient:
                                 self.say("yah beep! sent", target)
                         except:
                             print "Error: I can't Sent a DM!"
+
+                for SMSnick in SMSAlerts:
+                    # Check if Nick is mentioned and send a SMS
+                    if data.find(SMSnick) != -1:
+                        msg = ctx['msg'].strip(SMSnick)
+                        dmx = ": left you a message on "+target
+                        tmpMsg = sendnick+dmx
+                        Msg = sendnick+": "+msg+" "+target
+                        SMSnum = SMSid[SMSnick]
+                        
+                        try:
+                            if len(temp) < 140 :
+                                client.messages.create(to="+254720xxxxxx", from_="+150xxxxxx", body=Msg)
+
+                                self.say("SMS alert sent", target)
+                            
+                            else:                                
+                                client.messages.create(to="+254720xxxxxx", from_="+150xxxxxx", body=tmpMsg)
+
+                                self.say("SMS alert sent", target)
+                        except:
+                            print "Error: I can't Sent a SMS!"
+
 
                 # check if !excuse command is issued, to send a random BOFH excuse 
                 if ctx['msg'] == '!excuse':
