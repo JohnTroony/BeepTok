@@ -17,7 +17,7 @@ BeepTok needs Python 2.7 with the following modules installed:
 
 * Clone the repository on your computer
 ```bash
-$ git clone https://github.com/JohnTroony/BeepTok.git BeepTok-Bot```
+$ git clone https://github.com/JohnTroony/BeepTok.git BeepTok-Bot
 ```
 
 * Install tweepy (if you don't have it).
@@ -96,6 +96,7 @@ First part before : shows the IRC user who mentioned you, then the message follo
 - Supports Private Chat (you can extend features here too!).
 - Twitter notifications
 - Can print cat facts, some trolls & stupid excuses
+- Supports Twilio API for Text Messaging (beta)
 
 ## Contribution
 
