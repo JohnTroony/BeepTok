@@ -6,12 +6,20 @@ Here we've details and a guide on how to setup and mange the bot (and possibly e
 ## Dependencies
 BeepTok needs Python 2.7 with the following modules installed:
 
+Standard Libs
 - tweepy
 - socket
 - random
 - re
 - cPickle
 
+For Twilio Rest API support:
+
+```bash 
+git clone https://github.com/twilio/twilio-python`
+cd twilio-python`
+python setup.py install
+```
 
 ## Setting up Beeptok bot
 
